@@ -140,13 +140,13 @@ class CvPage extends StatelessComponent {
         ),
         div(
           [
-            p([text(item.position)], classes: 'h3 bold'),
-            p([text(content.responsibilitiesTitle)], classes: 'base-text bold'),
+            p([Component.text(item.position)], classes: 'h3 bold'),
+            p([Component.text(content.responsibilitiesTitle)], classes: 'base-text bold'),
             bulletList(item.responsibilities),
-            p([text(content.achievementsTitle)], classes: 'base-text bold'),
+            p([Component.text(content.achievementsTitle)], classes: 'base-text bold'),
             bulletList(item.achievements, className: 'bullet-list bullet-dash'),
             if (item.projects.isNotEmpty) ...[
-              p([text(item.projectsTitle)], classes: 'base-text bold'),
+              p([Component.text(item.projectsTitle)], classes: 'base-text bold'),
               for (final project in item.projects)
                 clickableText(
                   title: project.title,
@@ -169,7 +169,7 @@ class CvPage extends StatelessComponent {
         div(
           [
             for (final skill in content.skills)
-              span([text(skill)], classes: 'skill-chip'),
+              span([Component.text(skill)], classes: 'skill-chip'),
           ],
           classes: 'skills-wrap',
         ),
@@ -184,16 +184,16 @@ class CvPage extends StatelessComponent {
         div(
           [
             sectionTitle(content.educationTitle, appearClass: 1),
-            p([text(content.educationInstitution)], classes: 'base-text bold'),
-            p([text(content.educationYears)], classes: 'base-text'),
+            p([Component.text(content.educationInstitution)], classes: 'base-text bold'),
+            p([Component.text(content.educationYears)], classes: 'base-text'),
           ],
           classes: 'stack gap-8',
         ),
         div(
           [
             sectionTitle(content.languagesTitle, appearClass: 1),
-            p([text(content.languageEnglish)], classes: 'base-text'),
-            p([text(content.languageRussian)], classes: 'base-text'),
+            p([Component.text(content.languageEnglish)], classes: 'base-text'),
+            p([Component.text(content.languageRussian)], classes: 'base-text'),
           ],
           classes: 'stack gap-8',
         ),

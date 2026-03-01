@@ -12,7 +12,7 @@ Component bulletList(
       for (final item in items)
         li(
           [
-            span([text('—')], classes: 'bullet'),
+            span([Component.text('—')], classes: 'bullet'),
             span([
               markdownText(item, className: 'bullet-text', tag: 'span'),
             ], classes: 'bullet-content'),

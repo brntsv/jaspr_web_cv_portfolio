@@ -8,7 +8,7 @@ Component buttonLink({
 }) {
   return a(
     [
-      span([text(label)], classes: 'button-title'),
+      span([Component.text(label)], classes: 'button-title'),
       span([], classes: 'icon $iconClass'),
     ],
     href: href,

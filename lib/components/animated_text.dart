@@ -165,7 +165,7 @@ Component _animatedWord(
   final duration = appearDuration * (timing.end - timing.start);
 
   return span(
-    [text(word)],
+    [Component.text(word)],
     classes: 'word',
     attributes: {
       'style':

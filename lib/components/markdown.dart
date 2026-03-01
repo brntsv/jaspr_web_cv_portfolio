@@ -55,4 +55,4 @@ List<Component> _markdownInline(String text) {
   return spans;
 }
 
-Component textNode(String value) => text(value);
+Component textNode(String value) => Component.text(value);

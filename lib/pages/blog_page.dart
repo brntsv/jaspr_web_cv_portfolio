@@ -75,7 +75,7 @@ class BlogPage extends StatelessComponent {
     return div(
       [
         h3([
-          text(content.projectsTitle),
+          Component.text(content.projectsTitle),
         ], classes: 'h3'),
         div(
           [
@@ -106,7 +106,7 @@ class BlogPage extends StatelessComponent {
     return div(
       [
         h3([
-          text(content.contributingTitle),
+          Component.text(content.contributingTitle),
         ], classes: 'h3'),
         div(
           [
@@ -126,7 +126,7 @@ class BlogPage extends StatelessComponent {
     return div(
       [
         h3([
-          text(content.socialsTitle),
+          Component.text(content.socialsTitle),
         ], classes: 'h3'),
         div(
           [
@@ -145,7 +145,7 @@ class BlogPage extends StatelessComponent {
     return div(
       [
         h3([
-          text(content.aboutThisPageTitle),
+          Component.text(content.aboutThisPageTitle),
         ], classes: 'h3'),
         div(
           [

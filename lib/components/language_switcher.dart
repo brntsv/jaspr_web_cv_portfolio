@@ -12,7 +12,7 @@ Component languageSwitcher({
   final target = _togglePath(currentPath);
 
   return a(
-    [text(label)],
+    [Component.text(label)],
     href: target,
     classes: 'lang-switcher',
   );

@@ -69,7 +69,7 @@ class PortfolioPage extends StatelessComponent {
               classes: 'project-icon',
               attributes: const {'loading': 'lazy'},
             ),
-            h4([text(textData.title)], classes: 'h4'),
+            h4([Component.text(textData.title)], classes: 'h4'),
           ],
           classes: 'row gap-16',
         ),

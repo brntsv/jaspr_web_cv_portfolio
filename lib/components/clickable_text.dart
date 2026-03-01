@@ -10,11 +10,11 @@ Component clickableText({
   return p(
     [
       a(
-        [text(title)],
+        [Component.text(title)],
         href: href,
         classes: 'link-inline',
       ),
-      text(description),
+      Component.text(description),
     ],
     classes: className,
   );
