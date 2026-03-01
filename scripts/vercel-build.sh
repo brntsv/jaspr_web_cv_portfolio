@@ -35,6 +35,7 @@ if needs_install; then
 fi
 
 export PUB_CACHE="${PROJECT_ROOT}/.pub-cache"
+export PATH="${PUB_CACHE}/bin:${PATH}"
 
 DART_SDK_VERSION=$(dart --version 2>&1 || true)
 echo "Using ${DART_SDK_VERSION}"
