@@ -9,7 +9,6 @@ class AppContent {
     required this.yourJob,
     required this.email,
     required this.phone,
-    required this.location,
     required this.telegramUrl,
     required this.githubUrl,
     required this.aboutMeTitle,
@@ -48,7 +47,6 @@ class AppContent {
   final String yourJob;
   final String email;
   final String phone;
-  final String location;
   final String telegramUrl;
   final String githubUrl;
   final String aboutMeTitle;
@@ -229,7 +227,6 @@ const contentRu = AppContent(
   yourJob: 'Flutter Developer',
   email: 'brntsv.n@gmail.com',
   phone: '+7 913 017 65 94',
-  location: 'Новосибирск, Россия',
   telegramUrl: 'Telegram: [@bntsv](https://t.me/bntsv)',
   githubUrl: 'GitHub: [brntsv](https://github.com/brntsv)',
   aboutMeTitle: 'Обо мне',
@@ -255,7 +252,7 @@ const contentRu = AppContent(
   aboutThisPageTitle: 'Об этой странице',
   socialsTitle: 'Соцсети',
   blogFooterDesc:
-      'Этот сайт создан на Flutter Web, хостинг на Firebase. [Код доступен](https://github.com/brntsv/flutter_web_cv_portfolio) на Github.',
+      'Этот сайт создан на [Jaspr](https://jaspr.site/), хостинг на Vercel. [Код доступен](https://github.com/brntsv/jaspr_web_cv_portfolio) на Github.',
   blogFooterDesc2:
       'Проект вдохновлен [репозиторием](https://github.com/filiph/filiphnet) Filip Hráček',
   contributingTitle: 'Contributing',
@@ -372,7 +369,6 @@ const contentEn = AppContent(
   yourJob: 'Flutter Developer',
   email: 'brntsv.n@gmail.com',
   phone: '+7 913 017 65 94',
-  location: 'Novosibirsk, Russia',
   telegramUrl: 'Telegram: [@bntsv](https://t.me/bntsv)',
   githubUrl: 'GitHub: [brntsv](https://github.com/brntsv)',
   aboutMeTitle: 'About me',
