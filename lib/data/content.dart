@@ -193,7 +193,9 @@ const projectAssets = <ProjectId, ProjectAssets>{
     backgroundColor: '#F6EEE3',
     screenshots: _flourScreens,
     storeLinks: StoreLinks(
+      appStore: 'https://apps.apple.com/ru/app/мука-и-порядок/id6755035793',
       rustore: 'https://www.rustore.ru/catalog/app/com.flour.order',
+      appGallery: 'https://appgallery.huawei.com/#/app/C115702767'
     ),
   ),
   ProjectId.realtOne: ProjectAssets(
