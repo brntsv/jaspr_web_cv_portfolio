@@ -472,6 +472,29 @@ h1, h2, h3, h4, p {
   }
 }
 
+@media (min-aspect-ratio: 1/1) {
+  .phone {
+    height: 100%;
+    max-height: max(0px, calc(100vh - 192px));
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .phone-frame {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 258 / 560;
+    border-radius: calc(100% * 48 / 258) / calc(100% * 48 / 560);
+  }
+
+  .phone-screen {
+    border-radius: calc(100% * 42 / 258) / calc(100% * 42 / 560);
+  }
+}
+
 @media (max-aspect-ratio: 1/1) {
   .page {
     padding-left: 22px;
@@ -528,11 +551,5 @@ h1, h2, h3, h4, p {
 
   .back-button {
     display: none;
-  }
-}
-
-@media (max-height: 700px) {
-  .project-mockup {
-    padding: 0;
   }
 }
