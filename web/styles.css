@@ -203,6 +203,21 @@ h1, h2, h3, h4, p {
   border-radius: 18px;
   background: var(--color-graphite);
   color: var(--color-white);
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+  transition: transform 160ms ease, box-shadow 200ms ease;
+  will-change: transform;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22), 0 2px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.18);
 }
 
 .icon {
