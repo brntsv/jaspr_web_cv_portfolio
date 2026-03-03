@@ -469,6 +469,28 @@ h1, h2, h3, h4, p {
   transform: scale(1);
 }
 
+.word-fade {
+  animation-name: word-fade-reveal;
+  animation-duration: var(--word-duration);
+  animation-delay: var(--word-delay);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  color: var(--color-white);
+  opacity: 0;
+  will-change: opacity, color;
+}
+
+@keyframes word-fade-reveal {
+  from {
+    color: var(--color-white);
+    opacity: 0;
+  }
+  to {
+    color: var(--word-color);
+    opacity: 1;
+  }
+}
+
 .word {
   animation-name: word-reveal;
   animation-duration: var(--word-duration);

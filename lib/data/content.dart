@@ -31,7 +31,6 @@ class AppContent {
     required this.aboutThisPageTitle,
     required this.socialsTitle,
     required this.blogFooterDesc,
-    required this.blogFooterDesc2,
     required this.contributingTitle,
     required this.nativeWebscroll,
     required this.nativeWebscrollDesc,
@@ -69,7 +68,6 @@ class AppContent {
   final String aboutThisPageTitle;
   final String socialsTitle;
   final String blogFooterDesc;
-  final String blogFooterDesc2;
   final String contributingTitle;
   final String nativeWebscroll;
   final String nativeWebscrollDesc;
@@ -248,15 +246,13 @@ const contentRu = AppContent(
   languageEnglish: 'Английский - Intermediate / B1',
   languageRussian: 'Русский - Native',
   aboutMeBlog:
-      'Привет! Я Никита, Flutter разработчик. Здесь делюсь проектами и заметками о том, что меня вдохновляет. Помимо Flutter интересуюсь Rust.',
+      'Привет! Я Никита, Flutter разработчик. Здесь делюсь проектами и заметками о том, что меня вдохновляет. Помимо Flutter интересуюсь Python(FastAPI), Go и Rust.',
   cvLabel: 'Резюме',
   portfolioLabel: 'Портфолио',
   aboutThisPageTitle: 'Об этой странице',
   socialsTitle: 'Соцсети',
   blogFooterDesc:
       'Этот сайт создан на [Jaspr](https://jaspr.site/), хостинг на Vercel. [Код доступен](https://github.com/brntsv/jaspr_web_cv_portfolio) на Github.',
-  blogFooterDesc2:
-      'Проект вдохновлен [репозиторием](https://github.com/filiph/filiphnet) Filip Hráček',
   contributingTitle: 'Contributing',
   nativeWebscroll: '[native_web_scroll](https://pub.dev/packages/native_web_scroll)',
   nativeWebscrollDesc: '  нативный веб скролл для Flutter for Web',
@@ -390,15 +386,13 @@ const contentEn = AppContent(
   languageEnglish: 'English - Intermediate / B1',
   languageRussian: 'Russian - Native',
   aboutMeBlog:
-      'Hi! I\'m Nikita, a Flutter developer. Here I share projects and notes on what inspires me. Besides Flutter, I\'m into Rust.',
+      'Hi! I\'m Nikita, a Flutter developer. Here I share projects and notes on what inspires me. Besides Flutter, I\'m into Python(FastAPI), Go and Rust.',
   cvLabel: 'CV',
   portfolioLabel: 'Portfolio',
   aboutThisPageTitle: 'About this page',
   socialsTitle: 'Socials',
   blogFooterDesc:
       'This site is built with Flutter Web and the hosting is on Firebase. [Code is available](https://github.com/brntsv/flutter_web_cv_portfolio) on Github.',
-  blogFooterDesc2:
-      'Project inspired by [repository](https://github.com/filiph/filiphnet) Filip Hráček',
   contributingTitle: 'Contributing',
   nativeWebscroll: '[native_web_scroll](https://pub.dev/packages/native_web_scroll)',
   nativeWebscrollDesc: '  native web scrolling for Flutter for Web',

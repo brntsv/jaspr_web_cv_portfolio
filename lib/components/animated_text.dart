@@ -6,6 +6,7 @@ List<Component> animatedWords(
   required double appearDuration,
   required int appearClass,
   required String colorVar,
+  String wordClass = 'word',
   int startIndex = 0,
 }) {
   final words = text.split(' ');
@@ -20,6 +21,7 @@ List<Component> animatedWords(
         appearClass: appearClass,
         appearDuration: appearDuration,
         colorVar: colorVar,
+        wordClass: wordClass,
       ),
     );
   }
@@ -32,6 +34,7 @@ Component animatedTextBlock(
   required int appearClass,
   required String colorVar,
   required String className,
+  String wordClass = 'word',
   String tag = 'p',
 }) {
   final children = animatedWords(
@@ -39,6 +42,7 @@ Component animatedTextBlock(
     appearDuration: appearDuration,
     appearClass: appearClass,
     colorVar: colorVar,
+    wordClass: wordClass,
   );
 
   return _wrapTag(tag, children, className: className);
@@ -51,6 +55,7 @@ Component animatedMarkdownBlock(
   required String textColorVar,
   required String linkColorVar,
   required String className,
+  String wordClass = 'word',
   String tag = 'p',
 }) {
   final children = animatedMarkdown(
@@ -59,6 +64,7 @@ Component animatedMarkdownBlock(
     appearClass: appearClass,
     textColorVar: textColorVar,
     linkColorVar: linkColorVar,
+    wordClass: wordClass,
   );
   return _wrapTag(tag, children, className: className);
 }
@@ -69,6 +75,7 @@ List<Component> animatedMarkdown(
   required int appearClass,
   required String textColorVar,
   required String linkColorVar,
+  String wordClass = 'word',
 }) {
   final spans = <Component>[];
   final linkRegex = RegExp(r'\[(.*?)\]\((.*?)\)');
@@ -89,6 +96,7 @@ List<Component> animatedMarkdown(
               appearClass: appearClass,
               appearDuration: appearDuration,
               colorVar: textColorVar,
+              wordClass: wordClass,
             ),
           );
         }
@@ -110,6 +118,7 @@ List<Component> animatedMarkdown(
           appearClass: appearClass,
           appearDuration: appearDuration,
           colorVar: linkColorVar,
+          wordClass: wordClass,
         ),
       );
     }
@@ -143,6 +152,7 @@ List<Component> animatedMarkdown(
             appearClass: appearClass,
             appearDuration: appearDuration,
             colorVar: textColorVar,
+            wordClass: wordClass,
           ),
         );
       }
@@ -158,6 +168,7 @@ Component _animatedWord(
   required int appearClass,
   required double appearDuration,
   required String colorVar,
+  required String wordClass,
 }) {
   final animationClass = _getAnimationClass(wordIndex, appearClass);
   final timing = _getAnimationTiming(animationClass);
@@ -166,7 +177,7 @@ Component _animatedWord(
 
   return span(
     [Component.text(word)],
-    classes: 'word',
+    classes: wordClass,
     attributes: {
       'style':
           '--word-delay:${delay.toStringAsFixed(3)}s;--word-duration:${duration.toStringAsFixed(3)}s;--word-color:$colorVar;',

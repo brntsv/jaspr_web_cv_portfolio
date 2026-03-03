@@ -5,13 +5,17 @@ Component buttonLink({
   required String label,
   required String href,
   required String iconClass,
+  List<Component>? labelChildren,
+  String className = 'btn',
+  Map<String, String>? attributes,
 }) {
   return a(
     [
-      span([Component.text(label)], classes: 'button-title'),
+      span(labelChildren ?? [Component.text(label)], classes: 'button-title'),
       span([], classes: 'icon $iconClass'),
     ],
     href: href,
-    classes: 'btn',
+    classes: className,
+    attributes: attributes,
   );
 }

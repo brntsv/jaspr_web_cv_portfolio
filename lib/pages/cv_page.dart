@@ -2,8 +2,6 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 
 import '../components/animated_text.dart';
-import '../components/bullet_list.dart';
-import '../components/clickable_text.dart';
 import '../components/section_title.dart';
 import '../data/content.dart';
 import '../data/routes.dart';
@@ -30,6 +28,7 @@ class CvPage extends StatelessComponent {
               appearClass: 20,
               colorVar: 'var(--color-dark-gray)',
               className: 'h1',
+              wordClass: 'word-fade',
               tag: 'h1',
             ),
             _contactSection(),
@@ -56,6 +55,7 @@ class CvPage extends StatelessComponent {
               appearClass: 1,
               colorVar: 'var(--color-dark-gray)',
               className: 'base-text',
+              wordClass: 'word-fade',
               tag: 'p',
             ),
             animatedTextBlock(
@@ -64,6 +64,7 @@ class CvPage extends StatelessComponent {
               appearClass: 3,
               colorVar: 'var(--color-dark-gray)',
               className: 'base-text',
+              wordClass: 'word-fade',
               tag: 'p',
             ),
           ],
@@ -78,6 +79,7 @@ class CvPage extends StatelessComponent {
               textColorVar: 'var(--color-dark-gray)',
               linkColorVar: 'var(--color-blue)',
               className: 'base-text',
+              wordClass: 'word-fade',
             ),
             animatedMarkdownBlock(
               content.githubUrl,
@@ -86,6 +88,7 @@ class CvPage extends StatelessComponent {
               textColorVar: 'var(--color-dark-gray)',
               linkColorVar: 'var(--color-blue)',
               className: 'base-text',
+              wordClass: 'word-fade',
             ),
           ],
           classes: 'stack gap-8',
@@ -98,13 +101,14 @@ class CvPage extends StatelessComponent {
   Component _aboutSection() {
     return div(
       [
-        sectionTitle(content.aboutMeTitle),
+        sectionTitle(content.aboutMeTitle, wordClass: 'word-fade'),
         animatedTextBlock(
           content.aboutMeDesc,
           appearDuration: 7,
           appearClass: 18,
           colorVar: 'var(--color-dark-gray)',
           className: 'base-text',
+          wordClass: 'word-fade',
           tag: 'p',
         ),
       ],
@@ -115,7 +119,7 @@ class CvPage extends StatelessComponent {
   Component _experienceSection() {
     return div(
       [
-        sectionTitle(content.experienceTitle),
+        sectionTitle(content.experienceTitle, wordClass: 'word-fade'),
         for (final item in content.experiences) _experienceItem(item),
       ],
       classes: 'stack gap-16',
@@ -133,6 +137,7 @@ class CvPage extends StatelessComponent {
               appearClass: 1,
               colorVar: 'var(--color-dark-gray)',
               className: 'base-text',
+              wordClass: 'word-fade',
               tag: 'p',
             ),
           ],
@@ -140,18 +145,48 @@ class CvPage extends StatelessComponent {
         ),
         div(
           [
-            p([Component.text(item.position)], classes: 'h3 bold'),
-            p([Component.text(content.responsibilitiesTitle)], classes: 'base-text bold'),
-            bulletList(item.responsibilities),
-            p([Component.text(content.achievementsTitle)], classes: 'base-text bold'),
-            bulletList(item.achievements, className: 'bullet-list bullet-dash'),
+            _fadeText(
+              item.position,
+              className: 'h3 bold',
+              appearDuration: 3,
+              appearClass: 6,
+            ),
+            _fadeText(
+              content.responsibilitiesTitle,
+              className: 'base-text bold',
+              appearDuration: 3,
+              appearClass: 2,
+            ),
+            _animatedBulletList(
+              item.responsibilities,
+              appearDuration: 4,
+              appearClass: 3,
+            ),
+            _fadeText(
+              content.achievementsTitle,
+              className: 'base-text bold',
+              appearDuration: 3,
+              appearClass: 4,
+            ),
+            _animatedBulletList(
+              item.achievements,
+              className: 'bullet-list bullet-dash',
+              appearDuration: 4,
+              appearClass: 5,
+            ),
             if (item.projects.isNotEmpty) ...[
-              p([Component.text(item.projectsTitle)], classes: 'base-text bold'),
+              _fadeText(
+                item.projectsTitle,
+                className: 'base-text bold',
+                appearDuration: 3,
+                appearClass: 6,
+              ),
               for (final project in item.projects)
-                clickableText(
+                _animatedClickableText(
                   title: project.title,
                   description: project.description,
-                  href: portfolioAnchor(lang, _projectAnchor(project.projectId)),
+                  href:
+                      portfolioAnchor(lang, _projectAnchor(project.projectId)),
                 ),
             ],
           ],
@@ -165,11 +200,19 @@ class CvPage extends StatelessComponent {
   Component _skillsSection() {
     return div(
       [
-        sectionTitle(content.skillsTitle, appearClass: 1),
+        sectionTitle(content.skillsTitle, appearClass: 1, wordClass: 'word-fade'),
         div(
           [
             for (final skill in content.skills)
-              span([Component.text(skill)], classes: 'skill-chip'),
+              animatedTextBlock(
+                skill,
+                appearDuration: 3,
+                appearClass: 2,
+                colorVar: 'var(--color-dark-gray)',
+                className: 'skill-chip',
+                wordClass: 'word-fade',
+                tag: 'span',
+              ),
           ],
           classes: 'skills-wrap',
         ),
@@ -183,17 +226,45 @@ class CvPage extends StatelessComponent {
       [
         div(
           [
-            sectionTitle(content.educationTitle, appearClass: 1),
-            p([Component.text(content.educationInstitution)], classes: 'base-text bold'),
-            p([Component.text(content.educationYears)], classes: 'base-text'),
+            sectionTitle(
+              content.educationTitle,
+              appearClass: 1,
+              wordClass: 'word-fade',
+            ),
+            _fadeText(
+              content.educationInstitution,
+              className: 'base-text bold',
+              appearDuration: 3,
+              appearClass: 2,
+            ),
+            _fadeText(
+              content.educationYears,
+              className: 'base-text',
+              appearDuration: 3,
+              appearClass: 4,
+            ),
           ],
           classes: 'stack gap-8',
         ),
         div(
           [
-            sectionTitle(content.languagesTitle, appearClass: 1),
-            p([Component.text(content.languageEnglish)], classes: 'base-text'),
-            p([Component.text(content.languageRussian)], classes: 'base-text'),
+            sectionTitle(
+              content.languagesTitle,
+              appearClass: 1,
+              wordClass: 'word-fade',
+            ),
+            _fadeText(
+              content.languageEnglish,
+              className: 'base-text',
+              appearDuration: 3,
+              appearClass: 2,
+            ),
+            _fadeText(
+              content.languageRussian,
+              className: 'base-text',
+              appearDuration: 3,
+              appearClass: 3,
+            ),
           ],
           classes: 'stack gap-8',
         ),
@@ -202,14 +273,90 @@ class CvPage extends StatelessComponent {
     );
   }
 
-  String _projectAnchor(ProjectId id) {
-    switch (id) {
-      case ProjectId.flourAndOrder:
-        return 'flour-and-order';
-      case ProjectId.realtOne:
-        return 'realt-one';
-      case ProjectId.novex:
-        return 'novex';
-    }
+  Component _fadeText(
+    String text, {
+    required String className,
+    String tag = 'p',
+    double appearDuration = 4,
+    int appearClass = 2,
+  }) {
+    return animatedTextBlock(
+      text,
+      appearDuration: appearDuration,
+      appearClass: appearClass,
+      colorVar: 'var(--color-dark-gray)',
+      className: className,
+      wordClass: 'word-fade',
+      tag: tag,
+    );
   }
+
+  Component _animatedClickableText({
+    required String title,
+    required String description,
+    required String href,
+    String className = 'base-text',
+    double appearDuration = 4,
+    int appearClass = 2,
+  }) {
+    return animatedMarkdownBlock(
+      '[${title}](${href}) ${description}',
+      appearDuration: appearDuration,
+      appearClass: appearClass,
+      textColorVar: 'var(--color-dark-gray)',
+      linkColorVar: 'var(--color-blue)',
+      className: className,
+      wordClass: 'word-fade',
+    );
+  }
+
+  Component _animatedBulletList(
+    List<String> items, {
+    String className = 'bullet-list',
+    double appearDuration = 4,
+    int appearClass = 2,
+  }) {
+    return ul(
+      [
+        for (final item in items)
+          li(
+            [
+              span(
+                animatedWords(
+                  '—',
+                  appearDuration: appearDuration,
+                  appearClass: appearClass,
+                  colorVar: 'var(--color-dark-gray)',
+                  wordClass: 'word-fade',
+                ),
+                classes: 'bullet',
+              ),
+              span(
+                [
+                  animatedMarkdownBlock(
+                    item,
+                    appearDuration: appearDuration,
+                    appearClass: appearClass,
+                    textColorVar: 'var(--color-dark-gray)',
+                    linkColorVar: 'var(--color-blue)',
+                    className: 'bullet-text',
+                    wordClass: 'word-fade',
+                    tag: 'span',
+                  ),
+                ],
+                classes: 'bullet-content',
+              ),
+            ],
+            classes: 'bullet-item',
+          ),
+      ],
+      classes: className,
+    );
+  }
+
+  String _projectAnchor(ProjectId id) => switch (id) {
+        ProjectId.flourAndOrder => 'flour-and-order',
+        ProjectId.realtOne => 'realt-one',
+        ProjectId.novex => 'novex',
+      };
 }
