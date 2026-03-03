@@ -28,11 +28,15 @@
     };
     const dotSize = getCssNumber('--dot-size', 8);
     const dotGap = getCssNumber('--dot-gap', 4);
+    const dotActiveGrow = getCssNumber('--dot-active-grow', 0);
     const maxVisibleDots = Math.max(1, Math.round(getCssNumber('--dot-max', MAX_VISIBLE_DOTS)));
     const visibleDots = Math.min(maxVisibleDots, slideCount);
 
     if (dotsWrap && dotsTrack && dots.length > 0) {
-      const width = dotSize * visibleDots + dotGap * Math.max(visibleDots - 1, 0);
+      const width =
+        dotSize * visibleDots +
+        dotGap * Math.max(visibleDots - 1, 0) +
+        dotActiveGrow * 2;
       dotsWrap.style.width = `${width}px`;
       dotsWrap.style.justifyContent = slideCount <= visibleDots ? 'center' : 'flex-start';
     }
@@ -46,6 +50,7 @@
       dots.forEach((dot, idx) => {
         if (idx === i) dot.classList.add('active');
         else dot.classList.remove('active');
+        dot.classList.remove('edge-left', 'edge-right', 'off-left', 'off-right');
       });
 
       if (!dotsWrap || !dotsTrack || dots.length === 0) return;
@@ -55,8 +60,16 @@
       }
       const half = Math.floor(visibleDots / 2);
       const start = Math.max(0, Math.min(i - half, slideCount - visibleDots));
+      const end = start + visibleDots - 1;
       const offset = -(dotSize + dotGap) * start;
       dotsTrack.style.transform = `translateX(${offset}px)`;
+
+      dots.forEach((dot, idx) => {
+        if (idx < start) dot.classList.add('off-left');
+        else if (idx === start) dot.classList.add('edge-left');
+        else if (idx === end) dot.classList.add('edge-right');
+        else if (idx > end) dot.classList.add('off-right');
+      });
     };
 
     const scrollToIndex = (i, behavior = 'smooth') => {

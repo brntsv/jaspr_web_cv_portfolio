@@ -401,16 +401,18 @@ h1, h2, h3, h4, p {
 }
 
 .dots {
-  --dot-size: 10px;
-  --dot-gap: 4px;
+  --dot-size: 9px;
+  --dot-gap: 5px;
   --dot-max: 7;
+  --dot-active-grow: 1px;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  height: var(--dot-size);
-  overflow-x: hidden;
-  overflow-y: visible;
+  height: calc(var(--dot-size) + var(--dot-active-grow) * 2);
+  overflow: visible;
+  padding-inline: var(--dot-active-grow);
+  padding-block: var(--dot-active-grow);
   line-height: 0;
 }
 
@@ -428,11 +430,28 @@ h1, h2, h3, h4, p {
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: 999px;
-  background: rgba(35, 35, 37, 0.3);
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
+  background-color: rgba(35, 35, 37, 0.25);
+  will-change: transform, opacity;
+}
+
+.dot.off-left,
+.dot.off-right {
+  opacity: 0;
+  transform: scale(0.4);
 }
 
 .dot.active {
-  background: rgba(35, 35, 37, 0.8);
+  background-color: rgba(35, 35, 37, 0.85);
+  box-shadow: 0 0 0 var(--dot-active-grow) rgba(35, 35, 37, 0.85);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .word {
