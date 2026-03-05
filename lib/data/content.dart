@@ -246,13 +246,13 @@ const contentRu = AppContent(
   languageEnglish: 'Английский - Intermediate / B1',
   languageRussian: 'Русский - Native',
   aboutMeBlog:
-      'Привет! Я Никита, Flutter разработчик. Здесь делюсь проектами и заметками о том, что меня вдохновляет. Помимо Flutter интересуюсь Python(FastAPI), Go и Rust.',
+      'Привет! Я Никита, Flutter разработчик. Здесь делюсь проектами и заметками о том, что меня вдохновляет. Работаю с Dart, Flutter, Go, Python и Rust.',
   cvLabel: 'Резюме',
   portfolioLabel: 'Портфолио',
   aboutThisPageTitle: 'Об этой странице',
   socialsTitle: 'Соцсети',
   blogFooterDesc:
-      'Этот сайт создан на [Jaspr](https://jaspr.site/), хостинг на Vercel. [Код доступен](https://github.com/brntsv/jaspr_web_cv_portfolio) на Github.',
+      'Этот сайт создан на [Jaspr](https://jaspr.site/), хостинг на Vercel. [Код доступен](https://github.com/brntsv/jaspr_web_cv_portfolio) на Github',
   contributingTitle: 'Contributing',
   nativeWebscroll: '[native_web_scroll](https://pub.dev/packages/native_web_scroll)',
   nativeWebscrollDesc: '  нативный веб скролл для Flutter for Web',
@@ -386,13 +386,13 @@ const contentEn = AppContent(
   languageEnglish: 'English - Intermediate / B1',
   languageRussian: 'Russian - Native',
   aboutMeBlog:
-      'Hi! I\'m Nikita, a Flutter developer. Here I share projects and notes on what inspires me. Besides Flutter, I\'m into Python(FastAPI), Go and Rust.',
+      'Hi! I\'m Nikita, a Flutter developer. Here I share projects and notes on what inspires me. I work with Dart, Flutter, Go, Python and Rust.',
   cvLabel: 'CV',
   portfolioLabel: 'Portfolio',
   aboutThisPageTitle: 'About this page',
   socialsTitle: 'Socials',
   blogFooterDesc:
-      'This site is built with Flutter Web and the hosting is on Firebase. [Code is available](https://github.com/brntsv/flutter_web_cv_portfolio) on Github.',
+      'This site is built with [Jaspr](https://jaspr.site/) and the hosting is on Vercel. [Code is available](https://github.com/brntsv/jaspr_web_cv_portfolio) on Github',
   contributingTitle: 'Contributing',
   nativeWebscroll: '[native_web_scroll](https://pub.dev/packages/native_web_scroll)',
   nativeWebscrollDesc: '  native web scrolling for Flutter for Web',

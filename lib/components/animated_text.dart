@@ -186,8 +186,11 @@ Component _animatedWord(
 }
 
 int _getAnimationClass(int wordIndex, int baseClassNum) {
-  final hashValue = (wordIndex * 17 + baseClassNum * 13) % 20;
-  return hashValue + 1;
+  // Checkerboard stagger: even/odd words alternate between two timing bands.
+  const classesPerPhase = 10;
+  final phase = (wordIndex + baseClassNum) % 2;
+  final step = ((wordIndex ~/ 2) + baseClassNum) % classesPerPhase;
+  return phase == 0 ? step + 1 : step + 1 + classesPerPhase;
 }
 
 _AnimTiming _getAnimationTiming(int animationClass) {

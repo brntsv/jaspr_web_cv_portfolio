@@ -286,7 +286,10 @@ class BlogPage extends StatelessComponent {
   }
 
   int _getAnimationClass(int itemIndex, int baseClassNum) {
-    final hashValue = (itemIndex * 17 + baseClassNum * 13) % 20;
-    return hashValue + 1;
+    // Checkerboard stagger: even/odd words alternate between two timing bands.
+    const classesPerPhase = 10;
+    final phase = (itemIndex + baseClassNum) % 2;
+    final step = ((itemIndex ~/ 2) + baseClassNum) % classesPerPhase;
+    return phase == 0 ? step + 1 : step + 1 + classesPerPhase;
   }
 }

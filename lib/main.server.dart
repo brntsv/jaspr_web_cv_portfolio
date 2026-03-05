@@ -27,6 +27,7 @@ void main() {
         link(rel: 'manifest', href: '/manifest.json'),
         link(rel: 'stylesheet', href: '/styles.css'),
         script(src: '/phone_autoplay.js', defer: true),
+        script(src: '/lang_switcher_scroll.js', defer: true),
         script(src: '/analytics.js', defer: true),
       ],
       body: const App(),

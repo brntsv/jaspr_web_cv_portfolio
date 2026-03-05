@@ -180,6 +180,8 @@ h1, h2, h3, h4, p {
   text-transform: uppercase;
   background: transparent;
   z-index: 10;
+  transition: opacity 200ms ease;
+  will-change: opacity;
 }
 
 .back-button {
@@ -588,5 +590,10 @@ h1, h2, h3, h4, p {
 
   .back-button {
     display: none;
+  }
+
+  .lang-switcher.lang-switcher--hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 }
